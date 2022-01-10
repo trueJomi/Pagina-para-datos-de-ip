@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{{ super() }}
+404
+{% endblock title %}
+
+{% block content %}
+    <h1>Error 404</h1>
+    <h1>No se encontro esta pagina</h1>
+    {{ error }}
+{% endblock content %}

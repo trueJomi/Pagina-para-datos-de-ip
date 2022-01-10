@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% import 'macros.html' as macros %}
+
+{% block title %}
+{{ super() }}
+Bienenido
+{% endblock title %}
+
+{% block content %}
+    {% if ip_user %}
+    <h1>Hola que pex ip: {{ ip }}</h1>
+    {% else %}
+    <a href="{{ url_for('index') }}">inicio</a>
+    {% endif %}
+
+    <div class="container" >
+        <form class="center-block" action="{{url_for('hello')}}" method="POST">
+            <div class="form-group" >
+                {{ ip_form.ip.label(class_="form-label") }}
+                {{ ip_form.ip(class_="form-control") }}
+            </div>
+            <div class="form-group" >
+                {{ ip_form.mascara_red.label(class_="form-label") }}
+                {{ ip_form.mascara_red(class_="form-control") }}
+            </div>
+            {{ ip_form.submit(class_="btn btn-default") }}
+        </form>
+            
+    </div>
+
+    
+{% endblock content %}
