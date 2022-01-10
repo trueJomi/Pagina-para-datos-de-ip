@@ -1,3 +1,10 @@
-{% macro render(wea) %}
-    <h2>Macro activado: {{ wea }}</h2>
+{% macro formato_lista(dic) %}
+    {% for nombre in dic %}
+        <h3>
+            {{nombre}}:
+        </h3>
+        <h2>
+            <span>{{dic.get(nombre)}}</span>
+        </h2>
+    {% endfor %}
 {% endmacro %}
