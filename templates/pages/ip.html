@@ -4,14 +4,14 @@
 
 {% block title %}
 {{ super() }}
-Bienenido
+ | Datos
 {% endblock title %}
 
 {% block content %}
 
     <div class="container" >
         {% if ip_user %}
-        <h1>Hola que pex ip: {{ ip_user }}</h1>
+        <h1>Ingresa una IP</h1>
         {% else %}
         <a href="{{ url_for('index') }}">inicio</a>
         {% endif %}
@@ -19,6 +19,7 @@ Bienenido
         {{ wtf.quick_form(ip_form) }}
 
         {% if results.get('IP') %}
+            <br>
             {{ macros.formato_lista(results) }}
         {% endif %}
     </div>

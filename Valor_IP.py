@@ -358,7 +358,7 @@ def numb_hosts(mascara_red):
     cont_host=(2**exponent)-2
     return cont_host
 
-def subnetear(ip,mascara_red,hosts):
+def subnetear_hosts(ip,mascara_red,hosts):
     while(True):
         results=[]
         mask_temp=mascara_red
@@ -453,7 +453,7 @@ def dividir_sub(ip, mascara_red, cantidad=1, hosts='equals'):
     if hosts=='equals':
         subneteado=subnetear_igual(ip, mascara_red,cantidad)
     else: 
-        subneteado=subnetear(ip, mascara_red, hosts)
+        subneteado=subnetear_hosts(ip, mascara_red, hosts)
     for i in range(cantidad):
         subred=next(subneteado)
         print(' SUB-RED {} '.center(43, '~').format(i+1)+'\n')

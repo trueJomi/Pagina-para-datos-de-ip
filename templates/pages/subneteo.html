@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+{{ super() }}
+ | Subneteo
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+
+        <h1>Ingresa una IP Para Subnetear</h1>
+
+        {{ wtf.quick_form(subnet_form) }}
+
+        {% if results %}
+            <br>
+            {{ macros.tablaSub(results) }}
+
+            <div class="panel panel-default">
+                <div class="panel-heading">La siguente red es:  {{results[::-1][0].get('Sigueinte Red')}}</div>
+            </div>
+        {% endif %}
+        
+    </div>
+    
+    
+{% endblock content %}

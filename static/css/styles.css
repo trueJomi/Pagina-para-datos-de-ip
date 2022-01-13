@@ -2,3 +2,15 @@
     margin: 40px;
 
 }
+
+.tnumb{
+    counter-reset: rowNumber;
+}
+
+.tnumb tr {
+    counter-increment: rowNumber;
+}
+
+.tnumb tr td:first-child::before{
+    content:  counter(rowNumber);
+}

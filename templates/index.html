@@ -2,13 +2,20 @@
 
 {% block head %}
     {{ super() }}
-    <title>{% block title %}Wea{% endblock title %}</title>
+    <title>{% block title %}IP{% endblock title %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
 {% endblock head %}
+
+{% block body %}
+    {% block navbar %}
+        {% include 'nav.html' %}
+    {% endblock navbar %}
+
+    {% block content %}{% endblock content %}
     
-<body>
-{% block content %}
-    
-{% endblock content %}
-</body>
-</html>
+    {% block scripts %}
+    <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+    {{super()}}
+    {% endblock scripts %}
+{% endblock body %}
+

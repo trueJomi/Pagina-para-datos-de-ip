@@ -1,10 +1,65 @@
 {% macro formato_lista(dic) %}
-    {% for nombre in dic %}
-        <h3>
-            {{nombre}}:
-        </h3>
-        <h2>
-            <span>{{dic.get(nombre)}}</span>
-        </h2>
-    {% endfor %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Contenido</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for nombre in dic %}
+            <tr>
+                <th>
+                    {{nombre}}:
+                </th>
+                <td>
+                    {{dic.get(nombre)}}
+                <td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+    
+</table>
+    
+{% endmacro %}
+
+{% macro tablaSub(list) %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            {% for i in list[0].keys() %}
+                <th>
+                {% if i=='Sigueinte Red' %}
+                    {{ pass }}
+                {% else %}
+                    {{i}}
+                {% endif %}
+                </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody class="tnumb" >
+        {% for dic in list %}
+            <tr>
+                <td>
+
+                </td>
+                {% for i in dic.keys() %}
+                <td>
+                    {% if i=='Sigueinte Red' %}
+                        {{ pass }}
+                    {% else %}
+                        {{ dic.get(i) }}
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr> 
+        {% endfor %}
+    </tbody>
+    
+</table>
+    
 {% endmacro %}
